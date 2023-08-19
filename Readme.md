@@ -1,6 +1,6 @@
 # clAIrify
 
-![clAIrify Logo](./path_to_logo.png)  <!-- If you have a logo, update the path -->
+![clAIrify Logo](./static/assets/logo.png)
 
 AI-powered text analysis tool offering insights, summaries, and sentiment evaluations.
 
