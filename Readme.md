@@ -1,36 +1,67 @@
-# Docker instructions
+# clAIrify
 
-Building docker image :
-`docker build -t deeplearningcuda:latest .`
+![clAIrify Logo](./path_to_logo.png)  <!-- If you have a logo, update the path -->
 
-Run the Docker container with a volume:
-`docker run --gpus all -it --name deeplearning_container -v ./docker_folder:$HOME deeplearningcuda:latest /bin/bash`
+AI-powered text analysis tool offering insights, summaries, and sentiment evaluations.
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Features
+
+- **Text Summarization**: Concise summaries for long texts.
+- **Sentiment Analysis**: Determine the mood or tone of a piece of text.
+- **Keyword Extraction**: Identify main keywords from the content. *(Optional, if you have this feature)*
+
+## Installation
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/your_username/clAIrify.git
+   ```
+
+2. Install the required packages:
+
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+3. Run the FastAPI server:
+
+   ```sh
+   uvicorn app.main:app --reload
+   ```
 
 
-Setup Your Development Environment in the Container:
+## Usage
 
-Since you're using VSCode, it would be beneficial to use the Remote - Containers extension to connect directly to this container and develop from within VSCode.
-Inside VSCode, open the command palette (Ctrl+Shift+P or Cmd+Shift+P) and choose "Remote-Containers: Attach to Running Container...". From the list, select deeplearning_container.
-Start Developing:
+1. Navigate to `http://127.0.0.1:8000/docs` in your browser to access the API documentation and try out the endpoints.
+2. Use the provided endpoints to analyze your text.
 
-With your setup, any Python script you run inside this container will have access to the GPU and the installed libraries like TensorFlow and PyTorch.
-All the development and execution should happen within the container to leverage the specific CUDA version and libraries you've set up.
-Managing the Container:
+## Contributing
 
-When you're done for the day, you can exit the bash shell using the exit command. This will stop the container.
-To start the container again, use:
-
-`docker start deeplearning_container`
-
-And to get back into an interactive shell:
-`docker exec -it deeplearning_container /bin/bash`
+1. Fork the project.
+2. Create your feature branch (git checkout -b feature/AmazingFeature).
+3. Commit your changes (git commit -m 'Add some AmazingFeature').
+4. Push to the branch (git push origin feature/AmazingFeature).
+5. Open a pull request.
 
 
-Cleanup:
+## License
+Distributed under the GPL3 License. See [LICENSE](LICENSE) for more information.
 
-If you ever need to delete the container (to maybe create a new one), you can do so with:
 
-docker rm deeplearning_container
-And to remove the image:
+## Contact
 
-docker rmi deeplearningcuda:latest
+Author : [Romain DODET](https://github.com/HelloIAmRomain/)
+
+Project Link [here](https://github.com/HelloIAmRomain/clAIrify)
+
+Thank you for checking out clAIrify. Feedback and contributions are welcome!
