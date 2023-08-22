@@ -31,13 +31,12 @@ analysis_results = {}
 async def analyze_endpoint(request: Request, text_request: TextAnalysisRequest):
     if not text_request.text:
         raise InvalidInputError(detail="Text cannot be empty.")
-    
+
     text = text_request.text.strip()
-    print("text ",text)
+    print("text ", text)
     options = text_request.options
     logger.info(f"------- Result dictionary ------- : {text}")
     logger.info(f"------- Options dictionary ------- : {options}")
-
 
     logger.info(f"Received a request to analyze a text of length: {len(text)}")
 
@@ -45,6 +44,7 @@ async def analyze_endpoint(request: Request, text_request: TextAnalysisRequest):
     logger.info("Text analysis completed successfully.")
     logger.info(f"------- Result ------- : {result}")
     return {"Result": result}
+
 
 @router.get("/")
 @router.get("/index")

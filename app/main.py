@@ -6,9 +6,8 @@
 
 
 from fastapi import Depends, FastAPI, HTTPException, Request
-from slowapi.errors import RateLimitExceeded
 from fastapi.staticfiles import StaticFiles
-
+from slowapi.errors import RateLimitExceeded
 
 from .core import config
 from .core.config import limiter
@@ -26,6 +25,7 @@ app.state.limiter = limiter
 # Register your routers
 app.include_router(analysis.router)
 
+
 @app.exception_handler(RateLimitExceeded)
 async def rate_limit_exception(request, exc):
     return HTTPException(
@@ -33,9 +33,11 @@ async def rate_limit_exception(request, exc):
         detail="Too Many Requests"
     )
 
+
 @app.on_event("startup")
 async def startup_event():
     config.logger.info("Starting up the application...")
+
 
 @app.on_event("shutdown")
 async def shutdown_event():
