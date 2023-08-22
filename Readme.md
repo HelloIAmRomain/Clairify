@@ -24,7 +24,7 @@ AI-powered text analysis tool offering insights, summaries, and sentiment evalua
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/your_username/clAIrify.git
+   git clone https://github.com/HelloIAmRomain/clAIrify.git
    ```
 
 2. Install the required packages:
