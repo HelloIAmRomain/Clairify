@@ -17,12 +17,14 @@
 # ------------------------------------------------------------------------
 
 
+from typing import Optional, List
+from pydantic import BaseModel, Field
 
-
-
-from pydantic import BaseModel
+class TextAnalysis(BaseModel):
+    summary: Optional[str] = Field(None)
+    sentiment: Optional[str] = Field(None)
+    score: Optional[float] = Field(None)
+    keywords: Optional[List[str]] = Field(None)
 
 class TextAnalysisResponse(BaseModel):
-    summary: str
-    sentiment: str
-    score: float
+    Result: TextAnalysis

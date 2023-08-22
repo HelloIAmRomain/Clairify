@@ -42,7 +42,9 @@ httpx
 # Machine Learning and AI
 # =====================================
 transformers
+xformers
 torch
+nltk
 
 # =====================================
 # Utilities

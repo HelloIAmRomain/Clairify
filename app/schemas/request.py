@@ -18,22 +18,22 @@
 
 
 
-from pydantic import BaseModel, validator, constr
+from pydantic import BaseModel, field_validator, constr
 from ..core.config import MIN_TEXT_LENGTH, MAX_TEXT_LENGTH
 
 
 class AnalysisOptions(BaseModel):
     sentiment: bool = True
     summary: bool = True
-    keyword_extraction: bool = False
+    keyword_extraction: bool = True
 
 
 class TextAnalysisRequest(BaseModel):
-    text: constr(min_length=MIN_TEXT_LENGTH, max_length=MAX_TEXT_LENGTH, strip_whitespace=True)
+    text: constr(strip_whitespace=True)
     options: AnalysisOptions
 
-    @validator("text")
+    @field_validator ("text") # Validation of the "text" values
     def validate_text(cls, value):
         if not value:
-            raise ValueError("Text cannot be empty or just whitespace.")
+            raise ValueError("Text cannot be empty or just whitespaces.")
         return value

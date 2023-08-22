@@ -7,19 +7,24 @@
 
 from fastapi import HTTPException
 
-class TextAnalyzerBaseException(Exception):
+class TextAnalyzerBaseException(HTTPException):
     """Base exception for the text analyzer application."""
 
     def __init__(self, status_code: int, detail: str):
-        self.http_exception = HTTPException(status_code=status_code, detail=detail)
-        super().__init__(detail)
+        super().__init__(status_code=status_code, detail=detail)
 
 class TextTooLongError(TextAnalyzerBaseException):
     """Exception raised when the input text exceeds the allowed length."""
     
     def __init__(self, length: int, max_length: int):
-        self.max_length = max_length
         detail = f"Text length of {length} exceeds maximum allowed length of {max_length}."
+        super().__init__(status_code=400, detail=detail)
+
+class TextTooShortError(TextAnalyzerBaseException):
+    """Exception raised when the input text is too short."""
+    
+    def __init__(self, length: int, min_length: int):
+        detail = f"Text length of {length} is below allowed length of {min_length}."
         super().__init__(status_code=400, detail=detail)
 
 class ModelInferenceError(TextAnalyzerBaseException):

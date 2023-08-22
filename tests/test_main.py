@@ -5,15 +5,36 @@
 # ------------------------------------------------------------------------
 
 
+import pytest
 import logging
 
-def test_startup_event(caplog, test_app):
+@pytest.mark.asyncio
+async def test_startup_event(caplog, test_app):
     with caplog.at_level(logging.INFO):
-        test_app.router.on_startup.pop()  # We remove the startup event so it can be triggered manually
-        test_app.router.run_startup_handlers()
+        # Get access to the original startup event handlers
+        original_startup_handlers = test_app.router.on_startup.copy()
+
+        # Clear the list so they won't be automatically run
+        test_app.router.on_startup.clear()
+
+        # Manually run the startup event handlers
+        for event_handler in original_startup_handlers:
+            await event_handler()
+
         assert "Starting up the application..." in caplog.text
 
-def test_shutdown_event(caplog, test_app):
-    test_app.router.on_shutdown.pop()  # We remove the shutdown event so it can be triggered manually
-    test_app.router.run_shutdown_handlers()
-    assert "Shutting down the application..." in caplog.text
+
+@pytest.mark.asyncio
+async def test_shutdown_event(caplog, test_app):
+    with caplog.at_level(logging.INFO):
+        # Get access to the original shutdown event handlers
+        original_shutdown_handlers = test_app.router.on_shutdown.copy()
+
+        # Clear the list so they won't be automatically run
+        test_app.router.on_shutdown.clear()
+
+        # Manually run the shutdown event handlers
+        for event_handler in original_shutdown_handlers:
+            await event_handler()
+
+        assert "Shutting down the application..." in caplog.text

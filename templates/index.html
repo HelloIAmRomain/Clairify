@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Analysis</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="body-class">
+
+    <img src="/static/assets/logo.png" alt="Logo" class="logo">
+
+    <h1 class="main-title">Text Analysis</h1>
+
+    <form id="analysisForm" method="post" action="/analyze" class="text-analysis-form">
+        <label for="text" class="text-label">Text to Analyze:</label><br>
+        <textarea name="text" rows="4" cols="50" class="text-area"></textarea><br>
+
+        <div class="checkbox-group">
+            <input type="checkbox" name="sentiment" value="true" class="checkbox" checked> <span class="checkbox-label">Sentiment Analysis</span><br>
+            <input type="checkbox" name="summary" value="true" class="checkbox" checked> <span class="checkbox-label">Summary</span><br>
+            <input type="checkbox" name="keyword_extraction" value="true" class="checkbox"> <span class="checkbox-label">Keyword Extraction</span><br>
+        </div>
+
+        <input type="submit" value="Analyze" class="submit-button">
+    </form>
+
+    <div id="result" class="result">
+
+        <script src="/static/js/textAnalysisFormHandler.js"></script>
+    </div>
+
+</body>
+</html>

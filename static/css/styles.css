@@ -1,0 +1,92 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, form, label, input {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background color */
+body {
+    background-color: #fafafa;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+h1 {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+/* Logo */
+img {
+    display: block;
+    margin: auto;
+}
+
+/* Style the form container */
+.text-analysis-form {
+    width: 80%;
+    margin: auto;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+}
+
+/* Style the label elements */
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+/* Style the input elements */
+input[type="checkbox"],
+input[type="submit"] {
+    margin-top: 0.5em;
+}
+
+/* Style the textarea */
+textarea.text-area {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the result container */
+.result {
+    width: 80%;
+    margin: auto;
+    padding: 1em;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    margin-top: 1em;
+}
+
+/* Style the result titles */
+.result h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+/* Style the result paragraphs */
+.result p {
+    margin-bottom: 0.5em;
+    line-height: 1.4;
+}
