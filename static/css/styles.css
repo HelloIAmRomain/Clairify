@@ -17,17 +17,22 @@ h1 {
     text-align: center;
     padding: 1em;
     margin-bottom: 1em;
-    margin-top: 1em;
+    margin-top: 10px;
 }
 
 /* Logo */
 img {
     display: block;
     margin: auto;
+    padding-top:10px;
 }
 
-/* Style the form container */
-.text-analysis-form {
+form {
+    display: flex;	
+    flex-direction: column;	
+    justify-content: center;	
+    align-items: center;
+
     width: 80%;
     margin: auto;
     padding: 1em;
@@ -35,10 +40,12 @@ img {
     border-radius: 1em;
 }
 
+
 /* Style the label elements */
 label {
     display: block;
     margin-bottom: 0.5em;
+    margin-top: 1em;
     font-weight: bold;
 }
 
@@ -60,6 +67,7 @@ textarea.text-area {
 
 /* Style the submit button */
 input[type="submit"] {
+    margin-top: 1em;
     padding: 10px 20px;
     background-color: #007BFF;
     color: white;
@@ -89,4 +97,36 @@ input[type="submit"] {
 .result p {
     margin-bottom: 0.5em;
     line-height: 1.4;
+}
+
+/* Position the logout button at the top right */
+.top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+}
+
+/* Style the logout button */
+.logout-button {
+    color: #007BFF; /* Blue color for the link */
+    text-decoration: none;
+}
+
+/* Style the registration text within the form */
+.registration-text {
+    margin-top: 1em;
+    font-size: 0.9em;
+}
+
+/* Style the registration link within the form */
+.register-link {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#placeholder-text {
+    text-align: center;
+    width: 100%;
+    margin: auto;
 }

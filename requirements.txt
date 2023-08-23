@@ -7,7 +7,7 @@ slowapi
 # =====================================
 # Data Validation and Serialization
 # =====================================
-pydantic
+pydantic[dotenv]
 
 # =====================================
 # Web Server
@@ -18,18 +18,28 @@ uvicorn
 # Configuration Management
 # =====================================
 python-decouple
+dotenv
 
 # =====================================
 # Database and ORM
 # =====================================
-## sqlalchemy
-## databases
+SQLAlchemy
+mysqlclient
+PyMySQL
+
+# =====================================
+# Password hashing
+# =====================================
+passlib
+bcrypt
+
 
 # =====================================
 # Authentication and Authorization
 # =====================================
-## passlib[bcrypt]
-## jwt
+python-jose[cryptography]
+jwt
+fastapi-jwt-auth
 
 
 # =====================================

@@ -62,3 +62,4 @@ share/python-wheels/
 
 # Configuration file
 .env
+.mysqlenv

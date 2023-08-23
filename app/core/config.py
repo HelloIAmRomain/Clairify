@@ -28,3 +28,11 @@ MAX_REQUESTS_PER_MINUTE = config(
     'MAX_REQUESTS_PER_MINUTE', default=10, cast=int) if not TESTING else 10000
 MAX_REQUESTS_PER_HOUR = config(
     'MAX_REQUESTS_PER_HOUR', default=100, cast=int) if not TESTING else 10000
+
+
+# Secret key for encoding and decoding JWTs
+SECRET_KEY = config('SECRET_KEY')
+ALGORITHM = config('ALGORITHM', default="HS256")
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+REFRESH_TOKEN_EXPIRE_MINUTES = 43200  # 30 days
+DOMAIN_NAME = config('DOMAIN_NAME', default="example.com")

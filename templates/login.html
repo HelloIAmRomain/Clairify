@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" href="/static/assets/favicon.png" type="image/png">
+</head>
+<body class="body-class">
+    <img src="/static/assets/logo.png" alt="Logo" class="logo">
+
+    <h1 class="main-title">Login</h1>
+
+    <form id="login-form">
+        <label for="usernameOrEmail">Username:</label>
+        <input type="text" id="usernameOrEmail" name="usernameOrEmail" required><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <input type="submit" value="Login" class="submit-button">
+
+        <!-- Adding registration text here -->
+        <p class="registration-text">New here? <a href="/register" class="register-link">Register</a></p>
+    </form>
+
+    <script src="/static/js/login.js"></script>
+</body>
+</html>

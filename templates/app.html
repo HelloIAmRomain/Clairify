@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Text Analysis</title>
     <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" href="/static/assets/favicon.png" type="image/png">
 </head>
 
 <body class="body-class">
@@ -29,7 +30,17 @@
         <input type="submit" value="Analyze" class="submit-button">
     </form>
 
+    <div class="top-right">
+        <button id="logout-button" class="logout-button">Logout</button>
+    </div>
+    <!-- Add this line to include your logout.js script -->
+    <script src="/static/js/logout.js"></script>
+
+    
+
     <div id="result" class="result">
+
+        <p id="placeholder-text">Results here...</p>
 
         <script src="/static/js/textAnalysisFormHandler.js"></script>
     </div>

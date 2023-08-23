@@ -7,6 +7,8 @@
 
 from fastapi import HTTPException
 
+##### Analyzer Exceptions #####
+
 
 class TextAnalyzerBaseException(HTTPException):
     """Base exception for the text analyzer application."""
@@ -44,3 +46,30 @@ class InvalidInputError(TextAnalyzerBaseException):
 
     def __init__(self, detail: str):
         super().__init__(status_code=400, detail=detail)
+
+
+##### User exceptions #####
+
+class UsernameAlreadyExistsError(HTTPException):
+    def __init__(self):
+        super().__init__(status_code=400, detail="Username already exists")
+
+
+class EmailAlreadyExistsError(HTTPException):
+    def __init__(self):
+        super().__init__(status_code=400, detail="Email already exists")
+
+
+class UserNotFoundError(HTTPException):
+    def __init__(self):
+        super().__init__(status_code=404, detail="User not found")
+
+
+class InvalidPasswordError(HTTPException):
+    def __init__(self):
+        super().__init__(status_code=401, detail="Invalid password")
+
+
+class UserNotConnectedError(HTTPException):
+    def __init__(self):
+        super().__init__(status_code=403, detail="User not connected")

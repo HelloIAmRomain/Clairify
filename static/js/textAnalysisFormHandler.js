@@ -5,11 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (e) => {
         e.preventDefault();  // Prevent the default form submit action
 
+        // Show "Work in progress..." text
+        resultDiv.textContent = "Work in progress...";
+
         const formData = new FormData(form);
 
         const text = formData.get("text").trim();  // Trim whitespace
         if (!text) {
-            resultDiv.innerHTML = "Please enter text for analysis.";
+            resultDiv.textContent = "Please enter text for analysis.";
             return;
         }
 
@@ -31,12 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify(data)
             });
 
+            let outputHtml = "<h2>Analysis Result:</h2>";
+
             if (response.ok) {
                 const result = await response.json();
-                console.log(result);
-
-                let outputHtml = "<h2>Analysis Result:</h2>";
-
                 const analysis = result.Result;
 
                 if (analysis.sentiment) {
@@ -55,15 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 resultDiv.innerHTML = outputHtml;
 
             } else {
-                const errorData = await response.json();  // Fetch the JSON response from the server
-                console.log('Error data:', errorData);  // Log the error data to troubleshoot
-                const errorMessage = errorData.detail || "Unknown error";  // Extract the error message
-                console.error("Failed to analyze text:", errorMessage);  // Log the error message
+                const errorData = await response.json();
+                const errorMessage = errorData.detail || "Unknown error";
                 resultDiv.innerHTML = `Failed to analyze text. Reason: ${errorMessage}`;
             }
 
         } catch (err) {
-            console.error("An error occurred:", err);
             resultDiv.innerHTML = `An error occurred: ${err}`;
         }
     });
