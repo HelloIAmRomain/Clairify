@@ -1,3 +1,10 @@
+# ------------------------------------------------------------------------
+# Filename:    models.py
+# Copyright (C) 2023 Romain DODET
+# Author:      Romain DODET
+# ------------------------------------------------------------------------
+
+
 # SQLAlchemy models for user
 
 from .session import Base

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  fastapi_app:
+    container_name: fastapi_app
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql
+      - redis
+
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    env_file:
+      - ./.mysqlenv
+    ports:
+      - "3306:3306"
+
+  redis:
+    container_name: redis
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"

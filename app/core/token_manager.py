@@ -1,3 +1,10 @@
+# ------------------------------------------------------------------------
+# Filename:    token_manager.py
+# Copyright (C) 2023 Romain DODET
+# Author:      Romain DODET
+# ------------------------------------------------------------------------
+
+
 from datetime import datetime, timedelta
 from typing import Optional
 

@@ -1,3 +1,10 @@
+# ------------------------------------------------------------------------
+# Filename:    auth.py
+# Copyright (C) 2023 Romain DODET
+# Author:      Romain DODET
+# ------------------------------------------------------------------------
+
+
 import logging
 from typing import Dict
 

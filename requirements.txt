@@ -1,3 +1,7 @@
+
+
+
+
 # =====================================
 # Web Framework and Extensions
 # =====================================
@@ -18,7 +22,7 @@ uvicorn
 # Configuration Management
 # =====================================
 python-decouple
-dotenv
+python-dotenv
 
 # =====================================
 # Database and ORM
@@ -26,6 +30,7 @@ dotenv
 SQLAlchemy
 mysqlclient
 PyMySQL
+redis[hiredis]
 
 # =====================================
 # Password hashing

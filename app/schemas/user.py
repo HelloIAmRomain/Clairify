@@ -1,3 +1,9 @@
+# ------------------------------------------------------------------------
+# Filename:    user.py
+# Copyright (C) 2023 Romain DODET
+# Author:      Romain DODET
+# ------------------------------------------------------------------------
+
 # Pydantic models for user schema
 
 from pydantic import BaseModel, EmailStr

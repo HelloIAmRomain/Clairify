@@ -31,7 +31,7 @@ MAX_REQUESTS_PER_HOUR = config(
 
 
 # Secret key for encoding and decoding JWTs
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY', default="SecretKeyByDefaultChangeMe")
 ALGORITHM = config('ALGORITHM', default="HS256")
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 REFRESH_TOKEN_EXPIRE_MINUTES = 43200  # 30 days
