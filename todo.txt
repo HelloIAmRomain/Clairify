@@ -1,0 +1,40 @@
+	  ------------
+	/              \
+	| suite projet |
+	\			   /
+	  ------------
+
+
+supprimer requirements inutiles
+
+Choisir la langue, et le nombre de mots (feature extraction)
+
+
+Empecher les attaques par injection (en + de la validation)
+
+
+gestion des versions
+POETRY
+https://python-poetry.org/
+
+
+NLP (comme NLTK)
+SPACY
+https://spacy.io/
+
+
+selenium: end2end tests
+
+
+refresh tokens (/refresh) a utiliser	
+
+
+Nomnre limité de requetes gratuites par jour
+
+
+Keyword Extraction : choisir un nombre de mots
+
+
+utiliser proxy (nginx)
+
+REDIS : stocker les tokens
