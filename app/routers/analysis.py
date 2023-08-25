@@ -10,6 +10,8 @@ from fastapi import (APIRouter, Depends, Header, HTTPException, Request,
                      Response, status)
 from fastapi.security import OAuth2PasswordBearer
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import RedirectResponse
+
 from jose import ExpiredSignatureError, JWTError, jwt
 from sqlalchemy.orm import Session
 
@@ -98,22 +100,23 @@ async def read_app(request: Request, db: Session = Depends(get_db)):
     access_token = request.cookies.get("access_token")
     
     if not access_token:
-        raise HTTPException(status_code=401, detail="User not authenticated")
+        # Redirect to the login page
+        logger.warn("Refused User illegal access")
+        return RedirectResponse(url="/login")
 
     try:
         username = verify_access_token(access_token)
         if username is None:
-            raise HTTPException(status_code=401, detail="Could not extract user from token")
-
+            return RedirectResponse(url="/login")
 
         # Fetch the user based on the decoded username
         user = get_user_by_username(db, username)
         
         if not user:
-            raise HTTPException(status_code=401, detail="User not found")
+            logger.warn(f"Username {username} tried to authenticate, but was not in database")
+            return RedirectResponse(url="/login")
 
     except JWTError as e:
-        raise HTTPException(status_code=401, detail="Invalid token")
+        return RedirectResponse(url="/login")
 
     return templates.TemplateResponse("app.html", {"request": request, "user": user})
-
