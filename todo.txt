@@ -11,6 +11,8 @@ Choisir la langue, et le nombre de mots (feature extraction)
 
 ajouter ssl (https)
 
+ajouter Forgot password ? qui renvoie un formulaire pour refaire son mdp
+
 Empecher les attaques par injection (en + de la validation)
 
 optimiser la mémoire (lazy import, algos plus optimisés, ...)
