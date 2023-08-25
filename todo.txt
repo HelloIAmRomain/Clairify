@@ -9,9 +9,11 @@ supprimer requirements inutiles
 
 Choisir la langue, et le nombre de mots (feature extraction)
 
+ajouter ssl (https)
 
 Empecher les attaques par injection (en + de la validation)
 
+optimiser la mémoire (lazy import, algos plus optimisés, ...)
 
 gestion des versions
 POETRY
@@ -22,6 +24,8 @@ NLP (comme NLTK)
 SPACY
 https://spacy.io/
 
+
+limiter le nombre de comptes créés par IP
 
 selenium: end2end tests
 
